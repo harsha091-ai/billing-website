@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Duzo Billing - Sales Bill</title>
+    <link rel="stylesheet" href="billsPage.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <header>
+        <button class="send-button">Send</button>
+        <h1 data-i18n="salesBill">Sales Bill (0)</h1>
+        <button class="menu-button">☰</button>
+        <!-- Language Switcher -->
+        <select id="languageSwitcher">
+          <option value="en">English</option>
+          <option value="kn">Kannada</option>
+          <option value="hi">Hindi</option>
+        </select>
+      </header>
+      <main>
+        <div class="card new-bill">
+          <img src="bill-icon.png" alt="New Bill Icon" />
+          <h2 data-i18n="newBill">New Bill</h2>
+        </div>
+        <div class="card bill-type">
+          <h3 data-i18n="billType">Bill Type</h3>
+          <div class="radio-group">
+            <label
+              ><input type="radio" name="billType" value="sales" checked />
+              <span data-i18n="sales">Sales</span>
+            </label
+            >
+            <label
+              ><input type="radio" name="billType" value="purchase" />
+              <span data-i18n="purchase">Purchase</span>
+            </label
+            >
+            <label
+              ><input type="radio" name="billType" value="quotation" />
+              <span data-i18n="quotation">Quotation</span>
+            </label
+            >
+          </div>
+        </div>
+        <button class="generate-bill" data-i18n="generateBill">Generate Bill</button>
+        <div class="card backup">
+          <div class="backup-input">
+            <input type="text" placeholder="Send Backup to Your Gmail" data-i18n-placeholder="sendBackupToGmail" />
+            <button class="send-backup" data-i18n="send">Send</button>
+          </div>
+          <p data-i18n="lastTaken">Last Taken:</p>
+        </div>
+        <div class="card toggle-option">
+          <span data-i18n="signatureInBills">Signature in Bills</span>
+          <label class="switch">
+            <input type="checkbox" id="signatureToggle" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="card toggle-option">
+          <span data-i18n="stampSealSignPhoto">Stamp/Seal/Sign Photo</span>
+          <label class="switch">
+            <input type="checkbox" id="stampToggle" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <div class="card toggle-option">
+          <span data-i18n="logoInBills">LOGO in Bills</span>
+          <label class="switch">
+            <input type="checkbox" id="logoToggle" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+    <script src="billsPage.js"></script>
+    <script src="translator.js"></script>
+  </body>
+</html>

@@ -1,0 +1,150 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.app-container {
+  max-width: 480px;
+  margin: 0 auto;
+  background-color: white;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #ff7f50;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.back-button,
+.next-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.next-button {
+  background-color: #ffa500;
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+
+main {
+  padding: 20px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+input[type="text"],
+input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.phone-input {
+  display: flex;
+  align-items: center;
+}
+
+.country-code {
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ccc;
+}
+
+.separator {
+  text-align: center;
+  color: #666;
+  margin: 20px 0;
+}
+
+.restore-backup {
+  text-align: center;
+}
+
+#restoreBackup {
+  background-color: #ffa500;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.license-note {
+  color: #ffa500;
+  font-size: 0.9rem;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+}
+
+#closeModal {
+  background-color: #ffa500;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+/* Style for the new Bills navigation link */
+.nav-link {
+  color: #ffa500; /* Orange color to match the new color scheme */
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.nav-link:hover {
+  background-color: #f0f0f0;
+}

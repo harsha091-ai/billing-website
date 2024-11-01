@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Details Form</title>
+    <link rel="stylesheet" href="Form.css" />
+    <!-- Add jsPDF library for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  </head>
+  <body>
+    <div class="container fade-in official-theme">
+      <header>
+        <button id="backButton">← Back</button>
+        <h2 id="formTitle">Customer Details</h2>
+      </header>
+      <form id="customerForm">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="location">Location:</label>
+          <input type="text" id="location" name="location" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone no:</label>
+          <input type="tel" id="phone" name="phone" required />
+        </div>
+        <div class="form-group">
+          <label for="services">Services:</label>
+          <div class="dropdown">
+            <button type="button" class="dropdown-button" id="servicesDropdown">
+              <span>Select a service</span>
+              <i class="arrow"></i>
+            </button>
+            <div class="dropdown-content" id="servicesContent">
+              <button type="button" data-service="ac">AC</button>
+              <button type="button" data-service="washing">
+                Washing Machine
+              </button>
+              <button type="button" data-service="fridge">Fridge</button>
+              <button type="button" data-service="automobile">
+                Automobile Services
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="acDetails" class="hidden">
+          <div class="form-group">
+            <label for="acSerialNumber">AC Serial Number:</label>
+            <input type="text" id="acSerialNumber" name="acSerialNumber" />
+          </div>
+          <div class="form-group">
+            <label for="acNumber">AC Number:</label>
+            <input type="text" id="acNumber" name="acNumber" />
+          </div>
+          <div class="form-group">
+            <label for="initialDiagnosis">Initial Diagnosis:</label>
+            <input type="text" id="initialDiagnosis" name="initialDiagnosis" />
+            <div class="dropdown">
+              <button
+                type="button"
+                class="dropdown-button"
+                id="diagnosisDropdown"
+              >
+                <span>Select a diagnosis</span>
+                <i class="arrow"></i>
+              </button>
+              <div class="dropdown-content" id="diagnosisContent">
+                <button type="button">Not cooling</button>
+                <button type="button">Strange noise</button>
+                <button type="button">Water leakage</button>
+                <button type="button">Not turning on</button>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="problems">List all the problems:</label>
+            <textarea id="problems" name="problems" rows="4"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="spareParts">Spare Parts:</label>
+            <input type="text" id="spareParts" name="spareParts" />
+            <div class="dropdown">
+              <button
+                type="button"
+                class="dropdown-button"
+                id="sparePartsDropdown"
+              >
+                <span>Select spare parts</span>
+                <i class="arrow"></i>
+              </button>
+              <div class="dropdown-content" id="sparePartsContent">
+                <button type="button">Compressor</button>
+                <button type="button">Condenser</button>
+                <button type="button">Evaporator</button>
+                <button type="button">Fan motor</button>
+                <button type="button">Capacitor</button>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="sparePartName">Name of Spare Part:</label>
+            <input type="text" id="sparePartName" name="sparePartName" />
+          </div>
+          <div class="form-group">
+            <label for="sparePartPrice">Price of Spare Part:</label>
+            <input
+              type="number"
+              id="sparePartPrice"
+              name="sparePartPrice"
+              min="0"
+              step="0.01"
+            />
+          </div>
+        </div>
+        <div id="wmDetails" class="hidden">
+          <div class="form-group">
+            <label for="wmSerialNumber">Washing Machine Serial Number:</label>
+            <input type="text" id="wmSerialNumber" name="wmSerialNumber" />
+          </div>
+          <div class="form-group">
+            <label for="wmModel">Washing Machine Model:</label>
+            <input type="text" id="wmModel" name="wmModel" />
+          </div>
+          <div class="form-group">
+            <label for="wmDiagnosis">Initial Diagnosis:</label>
+            <input type="text" id="wmDiagnosis" name="wmDiagnosis" />
+            <div class="dropdown">
+              <button
+                type="button"
+                class="dropdown-button"
+                id="wmDiagnosisDropdown"
+              >
+                <span>Select a diagnosis</span>
+                <i class="arrow"></i>
+              </button>
+              <div class="dropdown-content" id="wmDiagnosisContent">
+                <button type="button">Not spinning</button>
+                <button type="button">Water leakage</button>
+                <button type="button">Noisy operation</button>
+                <button type="button">Not draining</button>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="wmProblems">List all the problems:</label>
+            <textarea id="wmProblems" name="wmProblems" rows="4"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="wmSpareParts">Spare Parts:</label>
+            <input type="text" id="wmSpareParts" name="wmSpareParts" />
+            <div class="dropdown">
+              <button
+                type="button"
+                class="dropdown-button"
+                id="wmSparePartsDropdown"
+              >
+                <span>Select spare parts</span>
+                <i class="arrow"></i>
+              </button>
+              <div class="dropdown-content" id="wmSparePartsContent">
+                <button type="button">Motor</button>
+                <button type="button">Belt</button>
+                <button type="button">Pump</button>
+                <button type="button">Control Board</button>
+                <button type="button">Drum</button>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="wmSparePartName">Name of Spare Part:</label>
+            <input type="text" id="wmSparePartName" name="wmSparePartName" />
+          </div>
+          <div class="form-group">
+            <label for="wmSparePartPrice">Price of Spare Part:</label>
+            <input
+              type="number"
+              id="wmSparePartPrice"
+              name="wmSparePartPrice"
+              min="0"
+              step="0.01"
+            />
+          </div>
+        </div>
+        <div id="fridgeDetails" class="hidden">
+          <div class="form-group">
+            <label for="fridgeSerialNumber">Fridge Serial Number:</label>
+            <input
+              type="text"
+              id="fridgeSerialNumber"
+              name="fridgeSerialNumber"
+            />
+          </div>
+          <div class="form-group">
+            <label for="fridgeModel">Fridge Model:</label>
+            <input type="text" id="fridgeModel" name="fridgeModel" />
+          </div>
+          <div class="form-group">
+            <label for="fridgeDiagnosis">Initial Diagnosis:</label>
+            <input type="text" id="fridgeDiagnosis" name="fridgeDiagnosis" />
+            <div class="dropdown">
+              <button
+                type="button"
+                class="dropdown-button"
+                id="fridgeDiagnosisDropdown"
+              >
+                <span>Select a diagnosis</span>
+                <i class="arrow"></i>
+              </button>
+              <div class="dropdown-content" id="fridgeDiagnosisContent">
+                <button type="button">Not cooling</button>
+                <button type="button">Strange noise</button>
+                <button type="button">Water leakage</button>
+                <button type="button">Not turning on</button>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fridgeProblems">List all the problems:</label>
+            <textarea
+              id="fridgeProblems"
+              name="fridgeProblems"
+              rows="4"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="fridgeSpareParts">Spare Parts:</label>
+            <input type="text" id="fridgeSpareParts" name="fridgeSpareParts" />
+            <div class="dropdown">
+              <button
+                type="button"
+                class="dropdown-button"
+                id="fridgeSparePartsDropdown"
+              >
+                <span>Select spare parts</span>
+                <i class="arrow"></i>
+              </button>
+              <div class="dropdown-content" id="fridgeSparePartsContent">
+                <button type="button">Compressor</button>
+                <button type="button">Condenser</button>
+                <button type="button">Evaporator</button>
+                <button type="button">Fan motor</button>
+                <button type="button">Capacitor</button>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fridgeSparePartName">Name of Spare Part:</label>
+            <input
+              type="text"
+              id="fridgeSparePartName"
+              name="fridgeSparePartName"
+            />
+          </div>
+          <div class="form-group">
+            <label for="fridgeSparePartPrice">Price of Spare Part:</label>
+            <input
+              type="number"
+              id="fridgeSparePartPrice"
+              name="fridgeSparePartPrice"
+              min="0"
+              step="0.01"
+            />
+          </div>
+        </div>
+        <div id="autoDetails" class="hidden">
+          <div class="form-group">
+            <label for="autoSerialNumber">Vehicle Number:</label>
+            <input type="text" id="autoSerialNumber" name="autoSerialNumber" />
+          </div>
+          <div class="form-group">
+            <label for="autoModel">Vehicle Model:</label>
+            <input type="text" id="autoModel" name="autoModel" />
+          </div>
+          <div class="form-group">
+            <label for="autoDiagnosis">Initial Diagnosis:</label>
+            <input type="text" id="autoDiagnosis" name="autoDiagnosis" />
+            <div class="dropdown">
+              <button
+                type="button"
+                class="dropdown-button"
+                id="autoDiagnosisDropdown"
+              >
+                <span>Select a diagnosis</span>
+                <i class="arrow"></i>
+              </button>
+              <div class="dropdown-content" id="autoDiagnosisContent">
+                <button type="button">Not starting</button>
+                <button type="button">Strange noise</button>
+                <button type="button">Water leakage</button>
+                <button type="button">Not turning on</button>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="autoProblems">List all the problems:</label>
+            <textarea id="autoProblems" name="autoProblems" rows="4"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="autoSpareParts">Spare Parts:</label>
+            <input type="text" id="autoSpareParts" name="autoSpareParts" />
+            <div class="dropdown">
+              <button
+                type="button"
+                class="dropdown-button"
+                id="autoSparePartsDropdown"
+              >
+                <span>Select spare parts</span>
+                <i class="arrow"></i>
+              </button>
+              <div class="dropdown-content" id="autoSparePartsContent">
+                <button type="button">Engine</button>
+                <button type="button">Transmission</button>
+                <button type="button">Brakes</button>
+                <button type="button">Steering</button>
+                <button type="button">Suspension</button>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="autoSparePartName">Name of Spare Part:</label>
+            <input
+              type="text"
+              id="autoSparePartName"
+              name="autoSparePartName"
+            />
+          </div>
+          <div class="form-group">
+            <label for="autoSparePartPrice">Price of Spare Part:</label>
+            <input
+              type="number"
+              id="autoSparePartPrice"
+              name="autoSparePartPrice"
+              min="0"
+              step="0.01"
+            />
+          </div>
+        </div>
+        <button type="submit" class="submit-button">
+          Generate Bill in PDF
+        </button>
+      </form>
+    </div>
+    <script src="Form.js"></script>
+  </body>
+</html>

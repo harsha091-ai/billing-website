@@ -1,0 +1,200 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffa500; /* Changed from #ffd580 to a darker orange */
+}
+
+.container {
+  background-color: transparent;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  transition: transform 0.3s ease;
+  border: 1px solid #ff8c00; /* Darker orange border */
+}
+
+.container:hover {
+  transform: scale(1.02);
+}
+
+h2#formTitle {
+  text-align: center;
+  color: #ffffff; /* White color for better readability */
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+label {
+  font-weight: bold;
+  color: #ffffff; /* White labels */
+}
+
+input,
+textarea,
+.dropdown-button {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ffa500;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  background-color: #ffffff; /* White background for input fields */
+  color: #333333; /* Dark text for readability */
+}
+
+input:focus,
+textarea:focus,
+.dropdown-button:focus {
+  outline: none;
+  border-color: #ff7f50;
+  box-shadow: 0 0 5px rgba(255, 127, 80, 0.5);
+}
+
+.dropdown {
+  position: relative;
+  margin-top: 0.5rem;
+}
+
+.dropdown-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background-color: white;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff; /* White background for dropdowns */
+  min-width: 100%;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+  color: #333333; /* Dark text */
+}
+
+.dropdown-content button {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.dropdown-content button:hover {
+  background-color: #ffb84d; /* Light orange on hover */
+}
+
+.arrow {
+  border: solid #666;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+
+.arrow.up {
+  transform: rotate(-135deg);
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #4a00e0;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #3c00b3;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+#acDetails {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd;
+}
+
+#acDetails .form-group:last-child {
+  margin-bottom: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #ffa500;
+  padding-bottom: 0.5rem;
+}
+
+button#backButton {
+  background: none;
+  border: none;
+  color: #ffffff; /* White color for back button */
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+button#backButton:hover {
+  color: #ffd700; /* Gold color on hover */
+}
+
+.submit-button {
+  background-color: #ff8c00; /* Darker orange for buttons */
+  color: #ffffff; /* White text */
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #e67e22; /* Slightly darker on hover */
+}
